@@ -1,0 +1,1532 @@
+<link type="text/css" rel="stylesheet" media="screen" href="../../../style.css" />
+<link href="https://libs.baidu.com/fontawesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<script src="https://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.js"></script><style>
+h1{line-height: 1.3;margin-bottom: 0.25em;border-bottom: 1px solid #a2a9b1;}
+.alkali{background-color:#ff6666}
+.alkali_predicted{background-color:#ffa1a1}
+.alkali_earth{background-color:#ffdead}
+.alkali_earth_predicted{background-color:#ffecd3}
+.lanthanide{background-color:#ffbfff}
+.actinide{background-color:#ff99cc}
+.superactinides{background-color:#b5c8ff}
+.superactinides_predicted{background-color:#d1ddff}
+.eka_superactinide{background-color:#a0e032}
+.eka_superactinide_predicted{background-color:#c6dd9d}
+.transition{background-color:#ffc0c0}
+.transition_predicted{background-color:#ffe2e2}
+.post_transition{background-color:#cccccc}
+.post_transition_predicted{background-color:#dfdfdf}
+.metalloid{background-color:#cccc99}
+.metalloid_predicted{background-color:#e2e2aa}
+.diatomic{background-color:#e7ff8f}
+.diatomic_predicted{background-color:#F3FFC7}
+.polyatomic{background-color:#a1ffc3}
+.polyatomic_predicted{background-color:#d0ffe1}
+.reactive_nonmetal{background-color:#a0ffa0}
+.reactive_nonmetal_predicted{background-color:#d3ffd3}
+.halogen{background-color:#ffff99}
+.halogen_predicted{background-color:#ffffd6}
+.noble_gas{background-color:#c0ffff}
+.noble_gas_predicted{background-color:#ddffff}
+.supercritical_atom{background-color:#f4f4c6}
+.supercritical_atom_predicted{background-color:#f4f4c6}
+.no_electron{background-color:#d0d0d0}
+.s_block{background-color:#ff6699}
+.s_block_predicted{background-color:#FBD}
+.p_block{background-color:#99ccff}
+.p_block_predicted{background-color:#CEF}
+.d_block{background-color:#ccff99}
+.d_block_predicted{background-color:#DFC}
+.ds_block{background-color:#90ffb0}
+.ds_block_predicted{background-color:#C7FFD7}
+.f_block{background-color:#66ffcc}
+.f_block_predicted{background-color:#BFE}
+.g_block{background-color:#ffcc66}
+.g_block_predicted{background-color:#FDA}
+.h_block{background-color:#F0908C}
+.h_block_predicted{background-color:#F0B6B4}
+.unknown{background-color:#e8e8e8}
+.error_type{background-color:#000000}
+.null{background-color:inherit}
+.maybe_not_exist{background-color:white}
+.none_type{background-color:#c0c0c0}
+.gas{color:green}
+.liquid{color:blue}
+.solid{color:black;font-weight:bold}
+.unknow_phase{color:grey}
+
+table#elements td .info {
+    background: white !important;
+    color: black;
+    display: none;
+    margin: 0 2px;
+    min-height: 5em;
+    padding: 0.75em;
+    position: absolute;
+    margin-top: 4.5em;
+    width: 20em;
+	text-align:left;
+    z-index: 200;
+    border-radius: 0.5em;
+    -o-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.75) 0 0 8px 2px;
+    -o-box-shadow: rgba(0, 0, 0, 0.75) 0 0 8px 2px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.75) 0 0 8px 2px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.75) 0 0 8px 2px;
+}
+
+
+table#elements .icon:hover  {
+	cursor:pointer;
+	left: -1px;
+	opacity: 1 !important;
+	padding: 0px;
+	top: -1px;
+	z-index: 100;
+	box-shadow: rgba(0, 0, 0, 0.75) 0 0 8px 2px;
+	-o-box-shadow: rgba(0, 0, 0, 0.75) 0 0 8px 2px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.75) 0 0 8px 2px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.75) 0 0 8px 2px;
+}
+
+.info img{
+width:100%;
+height:200px;
+}
+.info li{
+display:inline;
+padding-right:20px;
+}
+.nr-box h1{margin: 15px;}
+.nr-box .nr-nav span,.nr-box .nr-nav a{color: #999999;}
+.nr-box .nr-wtr {margin: 0 0 10px 15px;color: #a67171;font-weight: bold;}
+
+#content {white-space:normal;}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$('#elements td').click(function(){
+			var self = $(this).hasClass('active');
+			$('.active .info').fadeOut();
+			$('.active').removeClass('active');
+			if (!self) {
+				$(this).find('.info').fadeIn();
+				$(this).addClass('active');
+			}
+		});
+		$('#elements a').click(function(event){
+			window.open(event.target.href, 'table');
+			return false;
+		});
+	})
+</script>
+
+
+
+
+
+
+
+
+
+
+<table id="elements">
+<tbody><tr align="center" valign="bottom" style="margin:auto">
+<td width="1.2%"><b>族→</b>
+</td>
+<td width="5.3%"><b>1</b></td>
+<td width="5.3%"><b>2</b>
+</td>
+<td width="5.3%"><b>3</b></td>
+<td width="5.3%"><b>4</b>
+</td>
+<td width="5.3%"><b>5</b></td>
+<td width="5.3%"><b>6</b>
+</td>
+<td width="5.3%"><b>7</b></td>
+<td width="5.3%"><b>8</b>
+</td>
+<td width="5.3%"><b>9</b></td>
+<td width="5.3%"><b>10</b>
+</td>
+<td width="5.3%"><b>11</b></td>
+<td width="5.3%"><b>12</b>
+</td>
+<td width="5.3%"><b>13</b></td>
+<td width="5.3%"><b>14</b>
+</td>
+<td width="5.3%"><b>15</b></td>
+<td width="5.3%"><b>16</b>
+</td>
+<td width="5.3%"><b>17</b></td>
+<td width="5.3%"><b>18</b>
+</td>
+<td rowspan="3" width="1.6%"><b>电子层</b>
+</td>
+<td rowspan="3" width="1.6%"><b>0族电子数</b>
+</td></tr>
+<tr align="center">
+<td colspan="19">
+<hr />
+</td></tr>
+<tr align="center" valign="bottom">
+<td><b>周期↓</b>
+</td>
+<td><b>I</b> A
+</td>
+<td colspan="16">
+</td>
+<td><b>VIII</b> A<br />（0）
+</td></tr>
+<tr align="center">
+<td>1
+</td>
+<td class="reactive_nonmetal icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Hydrogenglow.jpg" />
+<p>氢是一种化学元素，其化学符号为H，原子序为1。氢的原子量为1.00794 u，是元素周期表中最轻的元素。单原子氢（H）是宇宙中最常见的化学物质，占重子总质量的75%。等离子态的氢是主序星的主要成分。氢的最常见同位素是“氕”，含1个质子，不含中子；天然氢还含极少量的同位素“氘”，含1个质子和1个中子。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/氢">百度百科</li><li><a href="https://zh.wikipedia.org/wiki/氢">维基百科</a></li></ul>
+</div>
+<span class="gas"><b>1</b></span><br />H<br />
+氢<br />
+1.008
+</td>
+<td valign="bottom"><b>II</b> A
+</td>
+<td colspan="10">
+</td>
+<td valign="bottom"><b>III</b> A
+</td>
+<td valign="bottom"><b>IV</b> A
+</td>
+<td valign="bottom"><b>V</b> A
+</td>
+<td valign="bottom"><b>VI</b> A
+</td>
+<td valign="bottom"><b>VII</b> A
+</td>
+<td class="noble_gas icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Helium_discharge_tube.jpg" />
+<p>氦 简写为He，其原子序为2，原子量为4.002602。是一种无色，无臭，无味，的惰性单原子气体。同时，在元素周期表上，它也是稀有气体的第一个元素。沸点为所有元素中最低的。继氢原子之後，氦是可观宇宙中第二轻且含量第二高的元素，在全宇宙的质量中大约占了24%，是其他较重双原子分子的12倍。它的总含量和太阳或木星内的比例十分相似。这是因为和接下来三个元素比较起来，氦-4有非常高的核结合能(每个核子中)。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/氦">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/氦">维基百科</a></li></ul>
+</div>
+<span class="gas"><b>2</b></span><br />He<br />
+氦<br />
+4.003
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2"><br /><br /><br /><br /><br />
+K
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2"><br /><br /><br /><br /><br />
+2
+</td></tr>
+<tr align="center">
+<td>2
+</td>
+<td class="alkali icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Lithium_paraffin.jpg" />
+<p>锂 是一种化学元素。其中文名则来源于“Lithos”的第一个音节发音“里”，因为是金属，在左方加上部首“钅”。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/锂">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锂">维基百科</a></li></ul>
+</div>
+<b>3</b><br />Li<br />
+锂<br />
+6.941
+</td>
+<td class="alkali_earth icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/267px-Be-140g.jpg" />
+<p>铍 是一种化学元素，符号为Be，原子序为4，属於碱土金属。铍通常在宇宙射线散裂过程中产生，是宇宙中较为稀有的元素之一。所有自然界中的铍都与其他元素结合，形成矿物，如绿柱石（海蓝宝石、祖母绿）和金绿宝石等。单质铍呈钢灰色，轻、硬而易碎。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铍">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铍">维基百科</a></li></ul>
+</div>
+<b>4</b><br />Be<br />
+铍<br />
+9.012
+</td>
+<td colspan="10">
+</td>
+<td class="metalloid icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Boron_mNACTEC.jpg" />
+<p>硼（Boron）是一种化学元素，化学符号为B，原子序数为5，是一种类金属。由於硼的产生完全来自于宇宙射线散裂而非恒星核合成反应，硼在太阳系与地壳的含量相当稀少。天然的硼主要存在于硼砂（Na2B4O7·10H2O）矿中。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/硼">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/硼">维基百科</a></li></ul>
+</div>
+<b>5</b><br />B<br />
+硼<br />
+10.81
+</td>
+<td class="reactive_nonmetal icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Diamond-and-graphite-with-scale.jpg" />
+<p>碳 是一种化学元素，符号为C，原子序数为6，位於元素周期表中的IV A族，属於非金属。每个碳原子有四颗能够进行键合的电子，因此其化合价通常为4。自然产生的碳由三种同位素组成：12C和13C为稳定同位素，而14C则具放射性，其半衰期约为5,730年。碳是少数几个自远古就被发现的元素之一（见化学元素发现年表）。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/碳">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/碳">维基百科</a></li></ul>
+</div>
+<b>6</b><br />C<br />
+碳<br />
+12.01
+</td>
+<td class="reactive_nonmetal icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Liquidnitrogen.jpg" />
+<p><b>氮</b>是一种化学元素，其化学符号为<b>N</b>；原子序数是7。在自然界中氮单质最普遍的形态是氮气，这是一种在标准状况下无色无味无臭的双原子气体分子，由于化学性质稳定而不容易发生化学反应。氮气是地球大气中含量最多的气体，占总体积的78.09%。1772年在苏格兰爱丁堡，由丹尼尔·卢瑟福分离空气後发现。氮属于氮族元素中的一种。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/氮">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/氮">维基百科</a></li></ul>
+</div>
+<span class="gas"><b>7</b></span><br />N<br />
+氮<br />
+14.01
+</td>
+<td class="reactive_nonmetal icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/262px-Liquid_oxygen_in_a_beaker_4.jpg" />
+<p>氧（IUPAC名：）是一种化学元素，符号为O，原子序为8，在元素周期表中属於氧族。氧属於非金属，是具有高反应性的氧化剂，能够与大部分元素以及其他化合物形成氧化物。氧在宇宙中的总质量在所有元素中位列第三，仅居氢和氦之下。在标准温度和压力下，两个氧原子会自然键合，形成无色无味的氧气，即双原子氧。氧气是地球大气层的主要成分之一，在体积上占20.8%。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/氧">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/氧">维基百科</a></li></ul>
+</div>
+<span class="gas"><b>8</b></span><br />O<br />
+氧<br />
+16.00
+</td>
+<td class="halogen icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Liquid_fluorine_tighter_crop.jpg" />
+<p>氟是一种化学元素，符号为F，其原子序数为9，是最轻的卤素。其单质在标准状况下为浅黄色的双原子气体，有剧毒。作为电负性最强的元素，氟极度活泼，几乎与所有其它元素，包括某些惰性气体元素，都可以形成化合物。","extract_html":"<p><b>氟</b>是一种化学元素，符号为<b>F</b>，其原子序数为9，是最轻的卤素。其单质在标准状况下为浅黄色的双原子气体，有剧毒。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/氟">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/氟">维基百科</a></li></ul>
+</div>
+<span class="gas"><b>9</b></span><br />F<br />
+氟<br />
+19.00
+</td>
+<td class="noble_gas icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Neon-glow.jpg" />
+<p>氖 是一种化学元素，它的化学符号是，它的原子序数是10。在标准状态下是一种无色无味的惰性单原子气体，其密度是空气的三分之二。它在1898年被发现为三种空气中就有的稀有惰性气体之一(另外两种是氪和氙)，氖是上述三种稀有气体中第二个被发现的，因为它亮红的放射谱线，它马上就被认出是一个新元素。氖这个名字是从希腊文翻译过来的，意思是新的。氖是惰性的，且没有任何不带电的氖的化合物曾被发现。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/氖">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/氖">维基百科</a></li></ul>
+</div>
+<span class="gas"><b>10</b></span><br />Ne<br />
+氖<br />
+20.18
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2"><br /><br /><br /><br />
+L<br />
+K
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2"><br /><br /><br /><br />
+8<br />
+2
+</td></tr>
+<tr align="center">
+<td>3
+</td>
+<td class="alkali icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Na_(Sodium).jpg" />
+<p><b>钠</b> 是一种化学元素，它的原子序数是11，相对原子质量为23。钠单质不会在地球自然界中存在，因为钠在空气中会迅速氧化，并与水产生剧烈反应，所以常见於化合物中，元素状态的钠通常以特殊物质（如石蜡、煤油）保存，以防与空气中的水份或氧气产生化合物。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钠">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钠">维基百科</a></li></ul>
+</div>
+<b>11</b><br />Na<br />
+钠<br />
+22.99
+</td>
+<td class="alkali_earth icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Magnesium_crystals.jpg" />
+<p>镁（Magnesium）是一种化学元素，它的化学符号是Mg，它的原子序数是12，是一种银白色的碱土金属。与其他五个同族元素有相似的物理性质、同样的价电子数及相似结晶体。镁是在地球的地壳中第八丰富的元素，约占2％的质量。镁是宇宙含量第九丰富的元素，它是在巨大星体中由三个氦原子核加上一个碳原子核，核融合所形成，当星体爆炸成超新星时，镁元素会逸散到宇宙中，之後可能再融入其他新的星系。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/镁">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镁">维基百科</a></li></ul>
+</div>
+<b>12</b><br />Mg<br />
+镁<br />
+24.31
+</td>
+<td valign="bottom"><b>III</b> B
+</td>
+<td valign="bottom"><b>IV</b> B
+</td>
+<td valign="bottom"><b>V</b> B
+</td>
+<td valign="bottom"><b>VI</b> B
+</td>
+<td valign="bottom"><b>VII</b> B
+</td>
+<td valign="bottom" colspan="3"><b>VIII</b> B<br /><span class="mwe-math-element"><img src="yuansu/yuansu/220427fd36f89da1fe868ced1f293fd5a1a90267.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.171ex; margin-right: -0.028ex; width:13.963ex; height:3.009ex;" /></span>
+</td>
+<td valign="bottom"><b>I</b> B
+</td>
+<td valign="bottom"><b>II</b> B
+</td>
+<td class="post_transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Aluminium-4.jpg" />
+<p><b>铝</b> 是一种化学元素，属于硼族元素，其化学符号是<b>Al</b>，原子序数是13。相对密度是2.70。铝是一种较软的易延展的银白色金属。铝是地壳中第三大丰度的元素（仅次于氧和硅），也是丰度最大的金属，在地球的固体表面中占约8%的质量。铝金属在化学上很活跃，因此除非在极其特殊的氧化还原环境下，一般很难找到游离态的金属铝。被发现的含铝的矿物超过270种。最主要的含铝矿石是铝土矿。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铝">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铝">维基百科</a></li></ul>
+</div>
+<b>13</b><br />Al<br />
+铝<br />
+26.98
+</td>
+<td class="metalloid icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-SiliconCroda.jpg" />
+<p>硅 是一种类金属元素，化学符号为Si，原子序数为14，属于元素周期表上的IVA族。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/硅">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/硅">维基百科</a></li></ul>
+</div>
+<b>14</b><br />Si<br />
+硅<br />
+28.09
+</td>
+<td class="reactive_nonmetal icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/63d0f703918fa0ec8a9afc96269759ee3c6ddbc8.jpg" />
+<p>磷 是一种化学元素，它的原子序数是15。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/磷">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/磷">维基百科</a></li></ul>
+</div>
+<b>15</b><br />P<br />
+磷<br />
+30.97
+</td>
+<td class="reactive_nonmetal icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Sulfur-sample.jpg" />
+<p><b>硫</b>是一种化学元素，在元素周期表中它的化学符号是<b>S</b>，原子序数是16。硫是一种非常常见的无味无臭的非金属，纯的硫是黄色的晶体，又称<b>硫黄</b>、<b>硫磺</b>。硫有许多不同的化合价，常见的有-2, 0, +4, +6等。在自然界中常以硫化物或硫酸盐的形式出现，尤其在火山地区纯的硫也在自然界出现。<b>硫单质</b>难溶于水，微溶于乙醇，易溶于二硫化碳。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/磷">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/磷">维基百科</a></li></ul>
+</div>
+<b>16</b><br />S<br />
+硫<br />
+32.07
+</td>
+<td class="halogen icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Chlorine_ampoule.jpg" />
+<p><b>氯</b>是一种卤族化学元素，化学符号为<b>Cl</b>，原子序数为17。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/氯">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/氯">维基百科</a></li></ul>
+</div>
+<span class="gas"><b>17</b></span><br />Cl<br />
+氯<br />
+35.45
+</td>
+<td class="noble_gas icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Argon_discharge_tube.jpg" />
+<p><b>氩</b>（Argon）是一种化学元素，在希腊语有「不活泼」的意思，由它的特性而来。它的化学符号是<b>Ar</b>，它的原子序数是18，在室温下是无色无味气体。由於原子外层充满电子，因此它不容易发生化学反应，是一种惰性气体。把它放电时呈紫色。已知的氩的同位素共有14种，包括氩33至氩46。氩占大气体积的0.93%，是地球大气中第三多的气体，也是在大气中含量最多的惰性气体。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/氩/721635">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/氩">维基百科</a></li></ul>
+</div>
+<span class="gas"><b>18</b></span><br />Ar<br />
+氩<br />
+39.95
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2"><br /><br /><br />
+M<br />
+L<br />
+K
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2"><br /><br /><br />
+8<br />
+8<br />
+2
+</td></tr>
+<tr align="center">
+<td>4
+</td>
+<td class="alkali icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Potassium.JPG" />
+<p>钾 是原子序数为19的化学元素。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钾">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钾">维基百科</a></li></ul>
+</div>
+<b>19</b><br />K<br />
+钾<br />
+39.10
+</td>
+<td class="alkali_earth icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Calcium_unter_Argon_Schutzgasatmosphäre.jpg" />
+<p><b>钙</b>（<b>Calcium</b>）是一种化学元素。其化学符号是<b>Ca</b>，原子序数是20。钙是银白色的碱土金属，具有中等程度的延展性。虽然在地壳的含量也很高，为地壳中第五丰富的元素，占地壳总质量3%，因其化学活性颇高，可以和水或酸反应放出氢气，或是在空气中便可氧化（形成致密氧化层 ），因此在自然界多以离子状态或化合物形式存在，而没有单质存在。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钙">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钙">维基百科</a></li></ul>
+</div>
+<b>20</b><br />Ca<br />
+钙<br />
+40.08
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Scandium_sublimed_dendritic_and_1cm3_cube.jpg" />
+<p><b>钪</b>（Scandium），旧译作<b>鉰</b>、<b>鏮</b>，为一种化学元素，它的化学符号是<b>Sc</b>，它的原子序数是21，是一种柔软、银白色的过渡性金属。常跟钆、铒等混合存在，产量很少。主要化合价为氧化态+3价。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钪">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钪">维基百科</a></li></ul>
+</div>
+<b>21</b><br />Sc<br />
+钪<br />
+44.96
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Titan-crystal_bar.JPG" />
+<p><b>钛</b>是化学元素，化学符号<b>Ti</b>，原子序数22，是银白色过渡金属，其特徵为重量轻、强度高、具金属光泽，亦有良好的抗腐蚀能力（包括海水、王水及氯气）。由于其稳定的化学性质，良好的耐高温、耐低温、抗强酸、抗强碱，以及高强度、低密度，常用来制造火箭及太空船，因此获美誉为“太空金属”。钛於1791年由格雷戈尔於英国康沃尔郡发现，并由克拉普罗特用希腊神话的泰坦为其命名。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钛">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钛">维基百科</a></li></ul>
+</div>
+<b>22</b><br />Ti<br />
+钛<br />
+47.88
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Vanadium_etched.jpg" />
+<p><b>钒</b>（Vanadium），元素符号<b>V</b>，化学元素之一，原子序数为23。钒音译自英语<i>Vanadium</i>，其词根源于<b>日耳曼神话</b>中古日耳曼语的女神名字<span class="ilh-all "><span class="ilh-page"><span><i>Vanadis</i></span></span></span>。这名字源于钒有许多色彩鲜艳的化合物。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钒">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钒">维基百科</a></li></ul>
+</div>
+<b>23</b><br />V<br />
+钒<br />
+50.94
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Chromium_crystals_and_1cm3_cube.jpg" />
+<p><b>铬</b>（拉丁语：，化学符号：<b></b>）是一种化学元素，原子序数为24，在VI B族元素中排行首位。铬单质是一种银色的金属，质地坚硬，表面带光泽，具有很高的熔点。它无臭、无味，同时具延展性。1797年法国药剂师和化学家路易-尼古拉·沃克兰首度自铬铅矿（<span><span class="chemf">PbCrO<sub>4</sub></span></span>）中分离出铬，随後确认为一种化学元素。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铬">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铬">维基百科</a></li></ul>
+</div>
+<b>24</b><br />Cr<br />
+铬<br />
+52.00
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Manganese_electrolytic_and_1cm3_cube.jpg" />
+<p><b>锰</b>（<b>manganese</b>）是一种化学元素，它的化学符号是<b>Mn</b>，它的原子序数是25，是一种过渡金属。锰一般以化合物的形式存在于自然界中，不会以单质出现。锰主要用作合金。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/锰">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锰">维基百科</a></li></ul>
+</div>
+<b>25</b><br />Mn<br />
+锰<br />
+54.94
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Iron_electrolytic_and_1cm3_cube.jpg" />
+<p><b>铁</b>是一种化学元素，它的化学符号是<b>Fe</b>，它的原子序数是26，它的相对原子质量是56。它是过渡金属的一种。铁是最常用的金属，是地球外核及内核的重要成份，是地壳上丰度第四高的元素和第二高的金属。铁常出现在类地行星中，因为铁是高质量恒星核融合後的产物，镍-56是放热核融合反应的最後一个产物，之後会衰变成最常见的铁同位素。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铁">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铁">维基百科</a></li></ul>
+</div>
+<b>26</b><br />Fe<br />
+铁<br />
+55.85
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Kobalt_electrolytic_and_1cm3_cube.jpg" />
+<p><b>钴</b>是化学元素，符号为<b>Co</b>，原子序数27，属过渡金属，铁系元素之一，具有磁性。钴矿主要为砷化物、氧化物和硫化物。此外，放射性的钴-60同位素可进行癌症治疗。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钴">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钴">维基百科</a></li></ul>
+</div>
+<b>27</b><br />Co<br />
+钴<br />
+58.93
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/304px-Nickel_chunk.jpg" />
+<p><b>镍</b>是一种化学元素，化学符号为<b>Ni</b>，原子序数为28。它是一种有光泽的银白色金属，其银白色带一点淡金色。镍属於过渡金属，质硬，具延展性。纯镍的化学活性相当高，这种活性可以在反应表面积最大化的粉末状态下看到，但大块的镍金属与周围的空气反应缓慢，因为其表面已形成了一层带保护性质的氧化物。即使如此，由於镍与氧之间的活性够高，所以在地球表面还是很难找到自然的金属镍。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/镍">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镍">维基百科</a></li></ul>
+</div>
+<b>28</b><br />Ni<br />
+镍<br />
+58.69
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-NatCopper.jpg" />
+<p><b>铜</b> 是化学元素，化学符号<b>Cu</b>（来自拉丁语：），原子序数29。纯铜是柔软的金属，表面刚切开时为红橙色带金属光泽、延展性好、导热性和导电性高，因此在电缆和电气、电子元件是最常用的材料，也可用作建筑材料，以及组成众多种合金。铜合金机械性能优异，电阻率很低，其中最重要的是青铜和黄铜。此外，铜也是耐用的金属，可以多次回收而无损其机械性能。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铜">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铜">维基百科</a></li></ul>
+</div>
+<b>29</b><br />Cu<br />
+铜<br />
+63.55
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Zinc_fragment_sublimed_and_1cm3_cube.jpg" />
+<p><b>锌</b>（<b>zinc</b>）是一种化学元素，它的化学符号是<b>Zn</b>，它的原子序数是30，相对原子质量是65.39，是一种浅灰色的过渡金属；锌由於形、色类似铅，故也称为<b>亚铅</b>，古称<b>倭铅</b>。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/锌">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锌">维基百科</a></li></ul>
+</div>
+<b>30</b><br />Zn<br />
+锌<br />
+65.39
+</td>
+<td class="post_transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Gallium_crystals.jpg" />
+<p><b>镓</b> 是一种化学元素，它的化学符号是<b>Ga</b>，原子序数是31，其位於元素周期表的第13族中，是一种贫金属。与铝、铟和铊具有相似的特性。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/镓">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镓">维基百科</a></li></ul>
+</div>
+<b>31</b><br />Ga<br />
+镓<br />
+69.72
+</td>
+<td class="metalloid icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Polycrystalline-germanium.jpg" />
+<p><b>锗</b> 是一种化学元素，它的化学符号是「Ge」，原子序数是32。它是一种灰白色类金属，有光泽，质硬，属於碳族，化学性质与同族的锡与硅相近。在自然中，锗共有5种同位素，原子质量数在70至76之间。它能形成许多不同的有机金属化合物，例如四乙基锗及异丁基锗烷等。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/锗">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锗">维基百科</a></li></ul>
+</div>
+<b>32</b><br />Ge<br />
+锗<br />
+72.59
+</td>
+<td class="metalloid icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Arsen_1a.jpg" />
+<p><b>砷</b>，化学元素符号为As，原子序数为33。砷分布在多种矿物中，通常与硫和其它金属元素共存，也有纯的元素晶体。艾尔伯图斯·麦格努斯在1250年首次对砷进行了记载。砷是一种非金属元素。单质以灰砷、黑砷和黄砷这三种同素异形体的形式存在，但只有灰砷在工业上具有重要的用途。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/砷">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/砷">维基百科</a></li></ul>
+</div>
+<b>33</b><br />As<br />
+砷<br />
+74.92
+</td>
+<td class="reactive_nonmetal icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-SeBlackRed.jpg" />
+<p><b>硒</b>是化学元素，化学符号是<b>Se</b>，原子序数是34，是非金属。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/硒">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/硒">维基百科</a></li></ul>
+</div>
+<b>34</b><br />Se<br />
+硒<br />
+78.96
+</td>
+<td class="halogen icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Bromine_vial_in_acrylic_cube.jpg" />
+<p><b>溴</b>，是一个化学元素及一种卤素；元素符号<b>Br</b>，原子序35。溴分子在标准温度和压力下是有挥发性的红棕色液体，活性介於氯与碘之间。纯溴也称<b>溴素</b>。溴蒸气具有腐蚀性，并且有毒。在2007年，约有556,000公吨的溴被制造。溴与其化合物可被用来作为阻燃剂、净水剂、杀虫剂、染料等等。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/溴">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/溴">维基百科</a></li></ul>
+</div>
+<span class="liquid"><b>35</b></span><br />Br<br />
+溴<br />
+79.90
+</td>
+<td class="noble_gas icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Krypton_discharge_tube.jpg" />
+<p><b>氪</b>是一种化学元素，化学符号是<b>Kr</b>，原子序数是36，是一种无色、无臭、无味的惰性气体，把它放电时呈橙红色，在大气中含有痕量，可通过分馏从液态空气中分离，常用于制作荧光灯。氪正如其他惰性气体一样，不易与其他物质产生化学作用，已知的化合物有二氟化氪（KrF<sub>2</sub>）。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/氪">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/氪">维基百科</a></li></ul>
+</div>
+<span class="gas"><b>36</b></span><br />Kr<br />
+氪<br />
+83.80
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2"><br /><br />
+N<br />
+M<br />
+L<br />
+K
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2"><br /><br />
+8<br />
+18<br />
+8<br />
+2
+</td></tr>
+<tr align="center">
+<td>5
+</td>
+<td class="alkali icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Rb5.JPG" />
+<p><b>铷</b>是一种化学元素，符号为<b>Rb</b>，原子序数为37。铷是种质软、呈银白色的金属，属於碱金属，原子量为85.4678。单质铷的反应性极高，其性质与其他碱金属相似，例如会在空气中快速氧化。自然出现的铷元素由两种同位素组成：<sup>85</sup>Rb是唯一一种稳定同位素，占72%；<sup>87</sup>Rb具微放射性，占28%，其半衰期为490亿年，超过宇宙年龄的三倍。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铷">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铷">维基百科</a></li></ul>
+</div>
+<b>37</b><br />Rb<br />
+铷<br />
+85.47
+</td>
+<td class="alkali_earth icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Strontium_destilled_crystals.jpg" />
+<p>锶 是一种化学元素，它的化学符号是Sr，它的原子序数是38，属於周期表的2A族，是一种银白色有光泽的碱土金属。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/锶">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锶">维基百科</a></li></ul>
+</div>
+<b>38</b><br />Sr<br />
+锶<br />
+87.62
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Yttrium_sublimed_dendritic_and_1cm3_cube.jpg" />
+<p><b>钇</b> 是化学元素，符号为<b>Y</b>，原子序为39，是银白色过渡金属，化学性质与镧系元素相近，且常归为稀土金属。钇在自然中并不单独出现，而是和镧系元素结合出现在稀土矿中。<sup>89</sup>Y是钇的唯一一种稳定同位素和自然同位素。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钇">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钇">维基百科</a></li></ul>
+</div>
+<b>39</b><br />Y<br />
+钇<br />
+88.91
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Zirconium_crystal_bar_and_1cm3_cube.jpg" />
+<p>锆（Zirconium）是化学元素，化学符号是Zr，原子序数是40，是银白色的过渡金属。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/锆">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锆">维基百科</a></li></ul>
+</div>
+<b>40</b><br />Zr<br />
+锆<br />
+91.22
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Niobium_crystals_and_1cm3_cube.jpg" />
+<p><b>铌</b> 是原子序为41的化学元素，曾有旧称<b>钶</b> 原在美洲使用，1949年IUPAC决定采欧洲使用的名称。铌是一种质软的灰色可延展过渡金属，一般出现在<span class="ilh-all "><span class="ilh-page">烧绿石</span></span>和<span class="ilh-all "><span class="ilh-page">铌铁矿</span></span>中。其命名来自希腊神话中的尼俄伯，即坦塔洛斯之女。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铌">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铌">维基百科</a></li></ul>
+</div>
+<b>41</b><br />Nb<br />
+铌<br />
+92.91
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Molybdenum_crystaline_fragment_and_1cm3_cube.jpg" />
+<p>钼（<b>Molybdenum</b>）是一种化学元素，它的化学符号是<b>Mo</b>，它的原子序数是42，是一种灰色的过渡金属。因为一开始钼矿石与铅矿石被混淆了，因此Molybdenum之名来自新拉丁语 <i>molybdaenum</i>，后者来自古希腊语 <i></i>，意思是铅。钼矿石在历史上被人们所熟知，但该元素的发现(即从其它金属中区分出来)是在1778年，由 卡尔·威廉·舍勒识别出来。该金属在1781年第一次被彼得·雅各·耶尔姆分离得出。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钼">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钼">维基百科</a></li></ul>
+</div>
+<b>42</b><br />Mo<br />
+钼<br />
+95.94
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Technetium.jpg" />
+<p><b>锝</b>是一种化学元素，其原子序数是43，化学符号是<b>Tc</b>。其所有同位素都具有放射性，是原子序最小的非稳定元素。地球上现存的大部分锝都是人工制造的，自然界中仅有极少量存在。在铀矿中，锝是一种自发裂变产物；在钼矿石中，钼经中子俘获后可以生成锝。锝是一种银灰色的金属晶体，其化学性质介於锰和铼之间。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/锝">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锝">维基百科</a></li></ul>
+</div>
+<b>43</b><br />Tc<br />
+锝<br />
+(97.91)
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Ruthenium_crystals.jpg" />
+<p><b>钌</b>是一种化学元素，它的化学符号是<b>Ru</b>，它的原子序数是44，普通话发音为liǎo（国语读音ㄌㄧㄠˇ）。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钌/84445">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钌">维基百科</a></li></ul>
+</div>
+<b>44</b><br />Ru<br />
+钌<br />
+101.1
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Rhodium_powder_pressed_melted.jpg" />
+<p><b>铑</b>（旧译<b>錴</b>）符号<b>Rh</b>，元素之一，原子序45，只有一个稳定的同位素<sup>103</sup>Rh。由英国化学家威廉·海德·伍拉斯顿 于1803年发现，并以其一种玫瑰色的氯化合物命名，可由该化合物于王水反应而得。英文「Rhodium」的希腊语意为“玫瑰”。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铑">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铑">维基百科</a></li></ul>
+</div>
+<b>45</b><br />Rh<br />
+铑<br />
+102.9
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Palladium_1-noReflection.jpg" />
+<p><b>钯</b>是化学元素，化学符号为<b>Pd</b>，原子序数46。钯的拉丁名称palladium是以小行星智神星来命名的，另一种以小行星来命名的元素是铈。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钯">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钯">维基百科</a></li></ul>
+</div>
+<b>46</b><br />Pd<br />
+钯<br />
+106.4
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Silver_crystal.jpg" />
+<p><b>银</b> 是化学元素，化学符号<b>Ag</b>（来自拉丁语：），原子序数47，是柔软有白色光泽的过渡金属，在所有金属中导电率、导热率和反射率最高。银在自然界中的存在方式有纯净的游离态单质（自然银），与金等其他金属的合金，还有含银矿石（如辉银矿和角银矿）。大部分银都是精炼铜、金、铅和锌的副产品。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/银/70453">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/银">维基百科</a></li></ul>
+</div>
+<b>47</b><br />Ag<br />
+银<br />
+107.9
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Cadmium-crystal_bar.jpg" />
+<p><b>镉</b>，是性质柔软的蓝白色有毒过渡金属，化学符号为<b>Cd</b>，原子序数为是48。镉能在锌矿找到。镉和锌均可用作电池材料。镉可制作镍镉电池、用于塑胶制造和金属电镀，生产颜料、油漆、染料、印刷油墨等中某些黄色颜料、制作车胎、某些发光电子组件和核子反应炉原件。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/镉">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镉">维基百科</a></li></ul>
+</div>
+<b>48</b><br />Cd<br />
+镉<br />
+112.4
+</td>
+<td class="post_transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Indium.jpg" />
+<p><b>铟</b>是化学元素，化学符号是<b>In</b>，原子序数是49，是柔软的银灰色金属，带有光泽。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铟">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铟">维基百科</a></li></ul>
+</div>
+<b>49</b><br />In<br />
+铟<br />
+114.8
+</td>
+<td class="post_transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Tin_drop.jpg" />
+<p><b>锡</b>是一种化学元素，其化学符号是<b>Sn</b>（拉丁语<i>Stannum</i>的缩写），它的原子序数是50。它是一种主族金属。纯的锡有银灰色的金属光泽，它拥有良好的伸展性能，它在空气中不易氧化，它的多种合金有防腐蚀的性能，因此它常被用来作为其它金属的防腐层。锡的主要来源是它的一种氧化物矿物锡石（<span>SnO<sub>2</sub></span>），盛产於中国云南、马来西亚等地。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/锡">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锡">维基百科</a></li></ul>
+</div>
+<b>50</b><br />Sn<br />
+锡<br />
+118.7
+</td>
+<td class="metalloid icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Antimony-4.jpg" />
+<p><b>锑</b>（拉丁语：Stibium，化学符号为<b>Sb</b>，<span>拼音：tī，注音：ㄊ一ˋ</span>）是化学元素，原子序数为51，是有金属光泽的类金属，在自然界主要存在于硫化物矿物辉锑矿（Sb<sub>2</sub>S<sub>3</sub>）中。目前已知锑化合物在古代就用作化妆品，金属锑在古代也有记载，但那时却被误认为是铅。大约17世纪时，人们知道了锑是化学元素之一。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/锑">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锑">维基百科</a></li></ul>
+</div>
+<b>51</b><br />Sb<br />
+锑<br />
+121.8
+</td>
+<td class="metalloid icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Tellurium2.jpg" />
+<p><b>碲</b>，是化学元素，化学符号是<b>Te</b>，原子序数是52，是银白色的类金属。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/碲">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/碲">维基百科</a></li></ul>
+</div>
+<b>52</b><br />Te<br />
+碲<br />
+127.6
+</td>
+<td class="halogen icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Sample_of_iodine.jpg" />
+<p><b>碘</b>是卤族化学元素，化学符号是<b>I</b>，原子序数是53。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/碘">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/碘">维基百科</a></li></ul>
+</div>
+<b>53</b><br />I<br />
+碘<br />
+126.9
+</td>
+<td class="noble_gas icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Xenon_discharge_tube.jpg" />
+<p><b>氙</b> 是一种化学元素，化学符号为<b>Xe</b>，原子序为54。氙是一种无色、无味的稀有气体。地球大气层中含有痕量的氙。 虽然氙的化学活性很低，但是它仍然能够进行化学反应，例如形成六氟合铂酸氙──首个被合成的稀有气体化合物。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/氙">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/氙">维基百科</a></li></ul>
+</div>
+<span class="gas">
+<b>54</b></span><br />Xe<br />
+氙<br />
+131.3
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2"><br />O<br />
+N<br />
+M<br />
+L<br />
+K
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2"><br />8<br />
+18<br />
+18<br />
+8<br />
+2
+</td></tr>
+<tr align="center">
+<td>6
+</td>
+<td class="alkali icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Cesium.jpg" />
+<p><b>铯</b> 是一种化学元素，化学符号为<b>Cs</b>，原子序为55。铯属于碱金属，带银金色。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铯">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铯">维基百科</a></li></ul>
+</div>
+<b>55</b><br />Cs<br />
+铯<br />
+132.9
+</td>
+<td class="alkali_earth icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Barium_unter_Argon_Schutzgas_Atmosphäre.jpg" />
+<p><b>钡</b>（<b>Barium</b>）是化学元素周期表中的元素，它的原子序数是56，化学符号是Ba。它是周期表中2A族的第五个元素，是一种柔软的有银白色金属光泽的碱土金属。由于它的化学性质十分活泼，从来没有在自然界中发现钡单质。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钡">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钡">维基百科</a></li></ul>
+</div>
+<b>56</b><br />Ba<br />
+钡<br />
+137.3
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<p>镧系元素是第57号元素镧到71号元素镥15种元素的统称。镧系元素的外层和次外层的电子构型基本相同，电子逐一填充到4f轨道上。镧系元素也属于过渡元素，只是镧系元素新增加的电子大都填入了从外侧数第三个电子层（即4f电子层）中，所以镧系元素又可以称为4f系。为了区别于元素周期表中的d区过渡元素，故又将镧系元素（及锕系元素）称为内过渡元素。由于镧系元素都是金属，所以又可以和锕系元素统称为f区金属。镧系元素用符号Ln表示。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/镧系元素">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/%E9%95%A7%E7%B3%BB%E5%85%83%E7%B4%A0">维基百科</a></li></ul>
+</div>
+<b>57</b>-<br /><b>71</b><br />
+镧系<br />
+元素</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/574e9258d109b3de22343543c8bf6c81800a4c16.jpg" />
+<p><b>铪</b>，是一种化学元素，它的化学符号是Hf，它的原子序数是72，原子量178.49，属周期系ⅣB族。它是一种带光泽的银灰色的过渡金属，熔点2233℃，沸点4602℃，密度13.31克/立方厘米。致密的金属铪性质不活泼，表面形成氧化物覆盖层，在常温下很稳定，粉末状的铪容易在空气中自燃。铪吸收氢气的能力很强，最高可形成HfH2.1。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铪">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铪">维基百科</a></li></ul>
+</div>
+<b>72</b><br />Hf<br />
+铪<br />
+178.5
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Tantalum_single_crystal_and_1cm3_cube.jpg" />
+<p><b>钽</b> 是一种化学元素，符号为<b>Ta</b>，原子序为73。其名称「Tantalum」取自希腊神话中的坦塔洛斯。钽是一种坚硬蓝灰色的稀有过渡金属，抗腐蚀能力极强。钽属於难熔金属，常作为合金的次要成份。钽的化学活性低，适宜代替铂作实验器材的材料。目前钽的最主要应用为钽质电容，在手提电话、DVD播放机、电子游戏机和电脑等电子器材中都有用到。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钽">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钽">维基百科</a></li></ul>
+</div>
+<b>73</b><br />Ta<br />
+钽<br />
+180.9
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Wolfram_evaporated_crystals_and_1cm3_cube.jpg" />
+<p><b>钨</b>，化学符号：<b>W</b>（德语：），是一种化学元素，原子序数是74，是非常硬、钢灰色至白色的过渡金属。含有钨的矿物有黑钨矿和白钨矿等。钨的物理特征非常强，尤其是熔点非常高，是所有非合金金属中最高的。纯钨主要用在电器和电子设备，它的许多化合物和合金也有很多其它用途（最常见的有钨丝灯泡、X射线管以及高温合金）。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钨">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钨">维基百科</a></li></ul>
+</div>
+<b>74</b><br />W<br />
+钨<br />
+183.9
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Rhenium_single_crystal_bar_and_1cm3_cube.jpg" />
+<p><b>铼</b>是一种化学元素，元素符号为<b>Re</b>，原子序为75。铼是种银白色的重金属，在元素周期表中属於第6周期过渡金属。它是地球地壳中最稀有的元素之一，平均含量估值为十亿分之一，同时也是熔点和沸点最高的元素之一。铼是钼和铜提炼过程的副产品。其化学性质与锰和锝相似，在化合物中的氧化态最低可达−3，最高可达+7。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铼">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铼">维基百科</a></li></ul>
+</div>
+<b>75</b><br />Re<br />
+铼<br />
+186.2
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Osmium_crystals.jpg" />
+<p><b>锇</b> 是一种化学元素，符号为<b>Os</b>，原子序为76。锇金属坚硬、易碎，呈蓝白色。锇属於铂系过渡金属，是自然界中密度最高的元素，密度有22.59 g/cm<sup>3</sup>。锇一般以痕量存在於自然中，大部份在铂矿藏的合金当中。锇与铂、铱及其他铂系元素形成的合金具有超强的耐用性和硬度，能用於制造钢笔笔头和电触头等。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/锇">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锇">维基百科</a></li></ul>
+</div>
+<b>76</b><br />Os<br />
+锇<br />
+190.2
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Iridium-2.jpg" />
+<p><b>铱</b>是化学元素，符号为<b>Ir</b>，原子序为77，属於铂系过渡金属，为质地坚硬易碎的银白色固体。铱是所有元素中密度第二高的元素（仅次於锇），而其耐腐蚀性是所有金属元素中最高，在2000℃高温下仍然能抵抗腐蚀。虽然固态铱只能受少数熔融盐和卤素侵蚀，但是铱粉末则相比之下较容易发生化学反应，可以燃烧。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铱">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铱">维基百科</a></li></ul>
+</div>
+<b>77</b><br />Ir<br />
+铱<br />
+192.2
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Platinum_crystals.jpg" />
+<p><b>铂</b>（<b>Platinum</b>），化学元素，俗称<b>白金</b>，化学符号为<b>Pt</b>，原子序为78。铂密度高、延展性高、反应性低的灰白色贵金属，属於过渡金属。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铂">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铂">维基百科</a></li></ul>
+</div>
+<b>78</b><br />Pt<br />
+铂<br />
+195.1
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Gold-crystals.jpg" />
+<p><b>金</b> 是化学元素，化学符号<b>Au</b>（来自拉丁语：），原子序数79。纯金是有明亮光泽、黄中带红、柔软、密度高、有延展性的金属。金在元素周期表中在11族，属过渡金属，是化学性质最不活泼的几种元素之一。金在标准状况下是固体，在自然界中常以游离态单质形式（自然金）存在，如岩石、地下<span class="ilh-all"><span class="ilh-page">矿脉</span></span>及冲积层中堆积的砂金或金粒。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/金/8243">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/金">维基百科</a></li></ul>
+</div>
+<b>79</b><br />Au<br />
+金<br />
+197.0
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Hg_Mercury.jpg" />
+<p><b>汞</b>是化学元素，俗称<b>水银</b>，化学符号<b>Hg</b>，原子序数80，是种密度大、银白色、室温下为液态的过渡金属，为d区元素。常用来制作温度计。在相同条件下，除了汞之外是液体的元素只有溴。铯、镓和铷会在比室温稍高的温度下熔化。汞的凝固点是−38.83 °C，沸点是356.73 °C，汞是所有金属元素中液态温度范围最小的。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/汞/498401">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/汞">维基百科</a></li></ul>
+</div>
+<span class="liquid"><b>80</b></span><br />Hg<br />
+汞<br />
+200.6
+</td>
+<td class="post_transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Thallium_pieces_in_ampoule.jpg" />
+<p><b>铊</b> 是化学元素，符号为<b>Tl</b>，原子序为81，是质软的灰色贫金属，在自然界并不以单质存在。铊金属外表和锡相似，但会在空气中失去光泽。两位化学家威廉·克鲁克斯和克洛德-奥古斯特·拉米在1861年独立发现了这一元素。他们都是在硫酸反应残留物中发现了铊，并运用了当时新发明的火焰光谱法对其进行了鉴定，观测到铊会产生明显的绿色谱线。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铊">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铊">维基百科</a></li></ul>
+</div>
+<b>81</b><br />Tl<br />
+铊<br />
+204.4
+</td>
+<td class="post_transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Lead_electrolytic_and_1cm3_cube.jpg" />
+<p><b>铅</b> 为化学元素，原子序数82。铅是柔软和展性强延性不佳的弱金属，有毒，也是重金属。铅原本的颜色为青白色，暴露在空气中表面会很快被一层暗灰色的氧化物覆盖。可用於建筑、铅酸充电池、弹头、炮弹、焊接物料、钓鱼用具、渔业用具、防辐射物料、奖杯和部份合金，例如电子焊接用的铅锡合金。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铅">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铅">维基百科</a></li></ul>
+</div>
+<b>82</b><br />Pb<br />
+铅<br />
+207.2
+</td>
+<td class="post_transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Bismuth_crystals_and_1cm3_cube.jpg" />
+<p><b>铋</b>（<b>Bismuth</b>）是一种化学元素，它的化学符号是<b>Bi</b>，它的原子序数是83，是有银白色光泽的金属。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铋">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铋">维基百科</a></li></ul>
+</div>
+<b>83</b><br />Bi<br />
+铋<br />
+209.0
+</td>
+<td class="post_transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/37d3d539b6003af33c3cbd2b372ac65c1138b6f2.jpg" />
+<p><b>钋</b>是化学元素，化学符号是<b>Po</b>，原子序数是84，是银白色的金属（有时归为类金属）。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钋">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钋">维基百科</a></li></ul>
+</div>
+<b>84</b><br />Po<br />
+钋<br />
+(209.0)
+</td>
+<td class="halogen icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_085_Astatine_-_no_label.jpg" />
+<p><b>砹</b> 是一种放射性化学元素，符号为<b>At</b>，原子序为85。地球上所有的砹都是更重的元素衰变过程中产生的。其同位素寿命都很短，其中最稳定的是砹-210，半衰期为8.5小时。科学家对这一元素所知甚少。砹在元素周期表中位於碘之下，其许多性质可以从碘推算出来，推算值与砹的已知性质相符。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/砹">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/砹">维基百科</a></li></ul>
+</div>
+<b>85</b><br />At<br />
+砹<br />
+(210.0)
+</td>
+<td class="noble_gas icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_086_Radon_-_no_label.svg.png" />
+<p><b>氡</b>是化学元素，符号为<b>Rn</b>，原子序为86，属於稀有气体，无色、无臭、无味，具放射性，是镭自然衰变後的间接产物，最稳定同位素为<sup>222</sup>Rn，半衰期为3.8天。在常规条件下，氡是密度最高的气体物质之一。它同时也是唯一一种常规条件下只含放射性同位素的气体，其辐射可以对健康造成损害。由於其放射性很强，所以针对氡的化学研究较为困难，已知化合物也很少。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/氡">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/氡">维基百科</a></li></ul>
+</div>
+<span class="gas"><b>86</b></span><br />Rn<br />
+氡<br />
+(222.0)
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2">P<br />O<br />
+N<br />
+M<br />
+L<br />
+K
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2">8<br />18<br />
+32<br />
+18<br />
+8<br />
+2
+</td></tr>
+<tr align="center">
+<td>7
+</td>
+<td class="alkali icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_087_Francium_-_no_label.svg.png" />
+<p><b>鍅</b> 是一种化学元素，符号为<b>Fr</b>，原子序为87。鍅是电负性最低的元素之一。钫是一种放射性极高的金属，会衰变成砹、镭和氡。和其他碱金属一样，钫有一颗价电子。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钫">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钫">维基百科</a></li></ul>
+</div>
+<b>87</b><br />Fr<br />
+钫<br />
+(223.0)
+</td>
+<td class="alkali_earth icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Radium226.jpg" />
+<p><b>镭</b>（旧译作<b>鈤</b>、<b>銧</b>）是一种化学元素，它的化学符号是<b>Ra</b>，它的原子序数是88，是一种银白色的碱土金属，带有放射性，而且十分贵重，每克约100美金。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/镭">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镭">维基百科</a></li></ul>
+</div>
+<b>88</b><br />Ra<br />
+镭<br />
+(226.0)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<p><b>锕系元素</b>以第Ⅲ族副族元素锕为首的一系列元素，是原子序数第89元素锕到第103元素铹，共15种放射性元素，在周期表中占有一个特殊位置。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/锕系元素">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锕系元素">维基百科</a></li></ul>
+</div>
+<b>89</b>-<br /><b>103</b><br />
+锕系<br />
+元素</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_104_Rutherfordium_-_no_label.svg.png" />
+<p><b>炉</b>（<b>Rutherfordium</b>）是一种化学元素，符号为<b>Rf</b>，原子序为104。炉是为纪念纽西兰物理学家欧内斯特·卢瑟福而以他命名的。炉是一种人工合成的放射性元素，不出现在自然界中，但可以在实验室内产生。其最稳定的已知同位素为<sup>267</sup>Rf，半衰期约为1.3小时。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/鈩">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/炉">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>104</b></span><br />Rf<br />
+𬬻（炉）<br />
+(265.1)
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_105_Dubnium_-_no_label.svg.png" />
+<p><b>𨧀</b>（Dubnium）是一种化学元素，符号为<b>Db</b>，原子序为105。其名Dubnium源自位於俄罗斯的小镇杜布纳（Dubna），也是𨧀最早得到合成的地方。𨧀是一种人工合成元素，不出现於在自然界中，并具有放射性。其最稳定的已知同位素（𨧀-268）的半衰期约为28小时，这也是102号元素之后最长寿的同位素。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钅杜">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/𨧀">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase">
+<b>105</b></span><br />Db<br />
+𬭊（𨧀）<br />
+(268.1)
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_106_Seaborgium_-_no_label.svg.png" />
+<p><b>𨭎</b> 是一种人工合成的化学元素，符号为<b>Sg</b>，原子序为106。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钅喜">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/𨭎">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>106</b></span><br />Sg<br />
+𬭳（𨭎）<br />
+(271.1)
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_107_Bohrium_-_no_label.svg.png" />
+<p><b>𨨏</b> 是原子序为107的化学元素，符号为<b>Bh</b>，以丹麦物理学家尼尔斯·玻尔命名。𨨏是一个人工合成元素，其最稳定的同位素<sup>270</sup>Bh的半衰期大约为61秒。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钅波">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/𨨏">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>107</b></span><br />Bh<br />
+𬭛（𨨏）<br />
+(270.1)
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_108_Hassium_-_no_label.svg.png" />
+<p><b>𨭆</b>（<b>Hassium</b>）是一种人工合成元素，符号为<b>Hs</b>，原子序为108。它是8族中最重的元素。科学家在1984年首次观察到𨭆元素。实验证明，𨭆是典型的8族元素，具稳定的+8氧化态，类似於锇。𨭆是锇的同系物。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钅黑">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/𨭆">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>108</b></span><br />Hs<br />
+𬭶（𨭆）<br />
+(277.2)
+</td>
+<td class="unknown icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_109_Meitnerium_-_no_label.svg.png" />
+<p><b>䥑（Meitnerium）</b>是人工合成的放射性化学元素，化学符号为<b>Mt</b>，原子序为109。䥑是9 (VIIIB)族最重的元素，但由於没有足够稳定的䥑同位素，因此未能通过化学实验来验证䥑的性质是否符合周期律。䥑於1982年首次合成，其最稳定同位素为<sup>278</sup>Mt，半衰期为7.6秒。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钅麦">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/䥑">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>109</b></span><br />Mt<br />
+鿏（䥑）<br />
+(276.2)
+</td>
+<td class="unknown icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Electron_shell_110_Darmstadtium_-_no_label.svg.png" />
+<p><b>鐽</b>（<b>Darmstadtium</b>）是一种人工合成的放射性元素，化学符号是<b>Ds</b>，原子序是110。它是10 (VIIIB)族最重的元素，属于超铀元素、超锕元素。由於还没有足够稳定的鐽同位素，因此未能通过化学实验来验证鐽的特性。鐽於1994年首次被合成，其最重也是最稳定同位素为<sup>281a</sup>Ds，半衰期约为11秒。有证据显示存在着另一个同核异构体<sup>281b</sup>Ds，其半衰期为3.7分钟。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/鐽/84446">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/鐽">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>110</b></span><br />Ds<br />
+𫟼（鐽）<br />
+(281.2)
+</td>
+<td class="unknown icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_111_Roentgenium_-_no_label.svg.png" />
+<p><b>錀</b>（<b>Roentgenium</b>）是一种人工合成的放射性化学元素，化学符号是<b>Rg</b>，原子序是111。錀属于超铀元素、锕系後元素。已知最稳定的錀同位素为錀-282，其半衰期约为2.1分钟，之后衰变成为第109号元素。第111号元素系过渡金属11族的成员，所以其化学性质预计和金、银、铜等11族金属类似，有可能会是铜红色、银白色或金黄色等有色彩的固体金属。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/錀/84278">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/錀">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>111</b></span><br />Rg<br />
+𬬭（錀）<br />
+(280.2)
+</td>
+<td class="transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_112_Copernicium_-_no_label.svg.png" />
+<p><b>鎶</b>（<b>Copernicium</b>）是一种超重元素，化学符号是<b>Cn</b>，原子序是112。鎶会通过α衰变成为<sup>273</sup>Ds，半衰期最长的鎶同位素为<sup>285</sup>Cn，有29秒。位於德国达姆施塔特重离子研究所（GSI），由<span class="ilh-all"><span class="ilh-page">西格･霍夫曼</span></span>和<span class="ilh-all"><span class="ilh-page">维克托･尼诺夫</span></span>领导的研究团队在1996年首次合成出鎶。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/鎶">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/鎶">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>112</b></span><br />Cn<br />
+鿔（鎶）<br />
+(285.2)
+</td>
+<td class="unknown icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_113_Nihonium_-_no_label.svg.png" />
+<p><b>鉨</b> 是铝族最重的元素，但由於具有放射性且衰变速度快，至今仍没有足够稳定的鉨同位素，因此无法验证其特性是否与该族相符。科学家於2003年在镆的衰变产物第一次发现鉨，再於2004年直接合成鉨。至今成功合成的鉨原子一共只有14个。其寿命最长的同位素为<sup>286</sup>Nh，半衰期约为20秒，因此可对其进行化学实验。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/鉨/20439023">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/鉨">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>113</b></span><br />Nh<br />
+鿭（鉨）<br />
+(284.2)
+</td>
+<td class="post_transition icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_114_Flerovium_-_no_label.svg.png" />
+<p><b>鈇</b> 是一种化学元素。其符号为<b>Fl</b>，原子序为114。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/鈇/6613450">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/鈇">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>114</b></span><br />Fl<br />
+𫓧（鈇）<br />
+(289.2)
+</td>
+<td class="unknown icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_115_Moscovium_-_no_label.svg.png" />
+<p><b>镆</b> 是元素周期表15 (VA)族（氮族元素）中最重的元素，但是由於还没有足够稳定的镆同位素，因此并未能透过化学实验来验证其特性。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/镆/20434206">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镆">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>115</b></span><br />Mc<br />
+镆<br />
+(288.2)
+</td>
+<td class="unknown icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_116_Livermorium_-_no_label.svg.png" />
+<p><b>鉝</b> 是原子序为116的人造元素。正式命名前的临时名称为<b>Ununhexium</b>（<b>Uuh</b>），现名於2012年5月30日经国际纯粹与应用化学联合会批准後正式使用。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/鉝/85150">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/鉝">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>116</b></span><br />Lv<br />
+𫟷（鉝）<br />
+(293.2)
+</td>
+<td class="unknown  icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_117_Tennessine_-_no_label.svg.png" />
+<p><b>鿬</b> 是一种人工合成的超重化学元素，原子序为117。Ts在所有人工合成元素中质量第二高，在元素周期表中位於第7周期的倒数第二位置。2010年，一个美俄联合科学团队在俄罗斯杜布纳联合原子核研究所首次宣布发现Ts。2011年的另一项实验直接生成了Ts的其中一种子同位素，这证实了2010年实验的一部份结果；原先的实验在2012成功得到重现。2014年，德国亥姆霍兹重离子研究中心也宣布成功重现该实验。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/Ts/19730808">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/鿬">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>117</b></span><br />Ts<br />
+鿬（<img alt="缺字图片" src="yuansu/yuansu/15px-Tennessine_zh.svg.png" decoding="async" width="15" height="15" srcset="yuansu/yuansu/23px-Tennessine_zh.svg.png 1.5x, yuansu/yuansu/30px-Tennessine_zh.svg.png 2x" data-file-width="200" data-file-height="200" />）<br />
+(294.2)
+</td>
+<td class="unknown  icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_118_Oganesson_-_no_label.svg.png" />
+<p><b>鿫</b>（<b>Oganesson</b>）是一种人工合成的化学元素，化学符号为<b>Og</b>，原子序为118。在元素周期表上，鿫位於p区，是第7周期的最後一个元素。2002年，一个俄美合作的科学家团队在位於俄罗斯杜布纳的联合核研究所首次合成鿫。国际纯化学和应用化学联合会（IUPAC）及国际纯粹与应用物理学联合会（IUPAP）所组成的联合工作小组在2015年12月确认此项发现。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/OG/19729275">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/鿫">维基百科</a></li></ul>
+</div>
+<span class="unknow_phase"><b>118</b></span><br />Og<br />
+鿫（<img alt="缺字图片" src="yuansu/yuansu/15px-Oganesson_zh-hans.svg.png" decoding="async" width="15" height="15" srcset="yuansu/yuansu/23px-Oganesson_zh-hans.svg.png 1.5x, yuansu/yuansu/30px-Oganesson_zh-hans.svg.png 2x" data-file-width="200" data-file-height="200" />）<br />
+(294.2)
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2">Q<br />P<br />
+O<br />
+N<br />
+M<br />
+L<br />
+K
+</td>
+<td valign="bottom" style="font-size:50%;line-height:1.2">8<br />18<br />
+32<br />
+32<br />
+18<br />
+8<br />
+2
+</td></tr>
+<tr align="center">
+<td colspan="22">
+</td></tr>
+<tr align="center">
+<td colspan="3" align="right">镧系元素
+</td>
+<td class="lanthanide  icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Lanthanum-2.jpg" />
+<p><b>镧</b>是化学元素，化学符号是<b>La</b>，原子序数是57，属于镧系元素，为稀土金属中最活泼的金属，在空气中很容易氧化。镧在独居石矿中约占稀土总量的25%。银白色的软金属，有延展性。能与水作用。易溶于稀酸。在空气中易氧化；加热能燃烧，生成氧化物和氮化物。在氢气中加热生成氢化物。它是稀土元素中第二个最丰富的元素，常与其他稀土元素一起存在于独居石中、氟碳锶镧矿中。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/镧/708966">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镧">维基百科</a></li></ul>
+</div>
+<b>57</b><br />La<br />
+镧<br />
+138.9
+</td>
+<td class="lanthanide  icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Cerium2.jpg" />
+<p><b>铈</b> 是一种化学元素，它的化学符号是<b>Ce</b>，它的原子序数是58，属于镧系元素，也是稀土元素之一。灰色软金属。在独居石中占稀土总量的40%以上。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/铈">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铈">维基百科</a></li></ul>
+</div>
+<b>58</b><br />Ce<br />
+铈<br />
+140.1
+</td>
+<td class="lanthanide  icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Praseodymium.jpg" />
+<p><b>镨</b> 是一种化学元素，它的化学符号是<b>Pr</b>，它的原子序数是59，属于镧系元素，也是稀土元素之一。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/镨">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镨">维基百科</a></li></ul>
+</div>
+<b>59</b><br />Pr<br />
+镨<br />
+140.9
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Neodymium2.jpg" />
+<p><b>钕</b>（旧译作<b>釢</b>、<b>鋖</b>）是化学元素，化学符号是<b>Nd</b>，原子序数是60，属于镧系元素(稀土元素)。1885年由冯·韦尔塞巴赫发现。银白色金属，较活泼，室温下在空气中缓慢氧化，能与水和酸作用放出氢。有顺磁性。存在于独居石中，由含水氯化钕经脱水后用金属钙还原，或由无水氯化钕经熔融后电解而制得。用于制造特种合金、电子仪器和光学玻璃。在制造激光器材方面，有着重要的应用。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/钕">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钕">维基百科</a></li></ul>
+</div>
+<b>60</b><br />Nd<br />
+钕<br />
+144.2
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_061_Promethium_-_no_label.svg.png" />
+<p><b>钷</b>是一种化学元素，符号为<b>Pm</b>，原子序61，属于镧系元素与稀土元素，它所有的同位素皆带有放射性。钷在自然界极其罕见，在任意给定的时间内，地球地壳中自然产生的钷只有500-600克。在原子序82的铅以前只有两个元素没有稳定的同位素，其中一个即为钷，另一个是锝。在化学上，钷是一种镧系元素，会与其他元素形成盐类。钷会以+3氧化态形成稳定的盐，但是也有少数化合物中存在+2的钷。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%92%B7/85182">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钷">维基百科</a></li></ul>
+</div>
+<b>61</b><br />Pm<br />
+钷<br />
+(144.9)
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Samarium-2.jpg" />
+<p><b>钐</b>是一种化学元素，符号为<b>Sm</b>，原子序数为 62。钐是一种中等硬度的银白色金属，在空气中容易氧化。它属于典型的镧系元素，氧化态通常为+3。最常见的钐(II)的化合物有SmO（氧化钐 ），SmS，SmSe 和 SmTe。最後一个化合物在化学合成是一种常见的还原剂。钐没有显著的生物学作用，只有轻微毒性。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%92%90/85194">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钐">维基百科</a></li></ul>
+</div>
+<b>62</b><br />Sm<br />
+钐<br />
+150.4
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Europium.jpg" />
+<p><b>铕</b>（<b>Europium</b>）是一种化学元素，符号为<b>Eu</b>，原子序为63。元素以欧洲（Europe）命名。铕是一种较坚硬的银白色金属，在空气和水中容易氧化。它属於典型的镧系元素，氧化态通常为+3，但其+2态也并不鲜见。所有氧化态为+2的铕化合物都具有轻微的还原性。铕在生物体中没有重要的功用，和其他重金属相比毒性较低。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%93%95/85193">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铕">维基百科</a></li></ul>
+</div>
+<b>63</b><br />Eu<br />
+铕<br />
+152.0
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Gadolinium-4.jpg" />
+<p><b>钆</b> 符号<b>Gd</b>，元素之一，原子序64，属于镧系元素，也是稀土元素之一。钆具有铁磁性，居里点约在室温，即将一块钆放入冰水中冷却会吸附磁铁，但回温後钆会脱离磁铁掉落。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%92%86/85192">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钆">维基百科</a></li></ul>
+</div>
+<b>64</b><br />Gd<br />
+钆<br />
+157.3
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Terbium-2.jpg" />
+<p><b>铽</b>（Terbium）符号Tb，为镧系元素，原子序65，是银白色的稀土金属，具有延展性、韧性且硬度高。铽在自然界中不存在纯元素态，但它含於许多矿物中，包括铈矽石、矽铍钇矿、独居石 、磷钇矿和黑稀金矿。就像其他的镧系元素一样，它在空气中相对稳定。铽拥有两种晶型的同素异形体，转化温度为1289°C。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%93%BD/85211">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铽">维基百科</a></li></ul>
+</div>
+<b>65</b><br />Tb<br />
+铽<br />
+158.9
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Dy_chips.jpg" />
+<p><b>镝</b> 是一种化学元素，符号为<b>Dy</b>，原子序为66。镝属於稀土元素，其外观具银色金属光泽。镝在大自然中不以单质出现，而是包含在多种矿物之中，例如磷钇矿。自然形成的镝由7种同位素组成，其中丰度最高的是<sup>164</sup>Dy。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%95%9D/85210">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镝">维基百科</a></li></ul>
+</div>
+<b>66</b><br />Dy<br />
+镝<br />
+162.5
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Holmium2.jpg" />
+<p><b>钬</b>（旧译作<b>錵</b>）是一种化学元素，它的化学符号是<b>Ho</b>，它的原子序数是67，属于镧系元素，也是稀土元素之一。钬在常温常压下是固体。 1878年为索里特（J.L.Soret）发现；1879年又被克利夫（P.T.Cleve）发现。第一电离能6.02电子伏特。有金属光泽。与水能缓慢起作用，溶于稀酸。盐类是黄色。氧化物Ho<sub>2</sub>O<sub>2</sub>为淡绿色。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%92%AC">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钬">维基百科</a></li></ul>
+</div>
+<b>67</b><br />Ho<br />
+钬<br />
+164.9
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Erbium-crop.jpg" />
+<p><b>铒</b>是一种化学元素，它的化学符号是<b>Er</b>，它的原子序数是68，属于镧系元素，也是稀土元素之一。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%93%92/85216">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铒">维基百科</a></li></ul>
+</div>
+<b>68</b><br />Er<br />
+铒<br />
+167.3
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Thulium_sublimed_dendritic_and_1cm3_cube.jpg" />
+<p><b>铥</b>是一种化学元素，符号<b>Tm</b>，原子序数69，是一种金属。铥是第二稀少的镧系元素，是一种质软、容易加工的金属，具有明亮的银灰色光泽，在空气中缓慢氧化而失去光泽。铥价格昂贵且相当稀有，通常被用於在便携式透视设备和固态激光器作为辐射源。1879年，瑞典化学家佩尔·提奥多·克勒夫从稀土元素铒的氧化物中分离出了两种从前未知的元素的氧化物，後来被确认分别为钬和铥的氧化物。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%93%A5/85215">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铥">维基百科</a></li></ul>
+</div>
+<b>69</b><br />Tm<br />
+铥<br />
+168.9
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Ytterbium-3.jpg" />
+<p><b>镱</b>是一种化学元素，符号为<b>Yb</b>，原子序为70。它属於稀土元素，是镧系金属的最後一员，也是f区块的最後一个元素。由於位於f区块中，所以镱的+2氧化态相对稳定。但和其他镧系元素一样，其最常见的氧化态为+3，这包括镱的氧化物、卤化物等化合物。在水溶液中，可溶镱化合物会和9个水分子形成配合物，这与其他较後的镧系元素相似。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%95%B1/85217">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镱">维基百科</a></li></ul>
+</div>
+<b>70</b><br />Yb<br />
+镱<br />
+173.0
+</td>
+<td class="lanthanide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Lutetium_sublimed_dendritic_and_1cm3_cube.jpg" />
+<p><b>镏</b> 是一种化学元素，符号为<b>Lu</b>，原子序为71。镏是一种银白色金属，在乾燥空气中能抵抗腐蚀。镏是最後一个镧系元素，有时也算作第六周期首个过渡金属，一般归为稀土元素。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%95%A5/85218">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镏">维基百科</a></li></ul>
+</div>
+<b>71</b><br />Lu<br />
+镥<br />
+175.0
+</td></tr>
+<tr align="center">
+<td colspan="3" align="right">锕系元素
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/277px-Actinium.jpg" />
+<p><b>锕（锕）</b>是一种放射性化学元素，符号为<b>Ac</b>，原子序为89。锕在1899年被发现，是首个得到分离的非原始核素。虽然钋、镭和氡比锕更早被发现，但是科学家到1902年才分离出这些元素。在元素周期表中，锕系元素始於锕，止於铹，一共有15种元素。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%94%95/85222">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锕">维基百科</a></li></ul>
+</div>
+<b>89</b><br />Ac<br />
+锕<br />
+(227.0)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Thorium_sample_0.1g.jpg" />
+<p><b>钍（钍）</b> 是原子序数为90的元素，其元素符号为<b>Th</b>，属锕系元素，具有放射性。其拉丁文名称来自北欧神话的雷神索尔（Thor）。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%92%8D">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钍">维基百科</a></li></ul>
+</div>
+<b>90</b><br />Th<br />
+钍<br />
+232.0
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_091_Protactinium_-_no_label.svg.png" />
+<p><b>镤（镤）</b> 是一种放射性化学元素，化学符号为<b>Pa</b>，原子序为91。镤是一种银灰色、密度大的锕系元素，容易与氧、水蒸汽和无机酸反应。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%95%A4/85221">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镤">维基百科</a></li></ul>
+</div>
+<b>91</b><br />Pa<br />
+镤<br />
+231.0
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-HEUraniumC.jpg" />
+<p><b>铀（铀）</b>（<b>Uranium</b>）是一种银白色金属化学元素，属於元素周期表中的锕系，化学符号为<b>U</b>，原子序为92。每个铀原子有92个质子和92个电子，其中6个为价电子。铀具有微放射性，其同位素都不稳定，并以铀-238（146个中子）和铀-235（143个中子）最为常见。铀在天然放射性核素中原子量第二高，仅次于钚。其密度比铅高出大约70%，比金和钨低。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%93%80">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铀">维基百科</a></li></ul>
+</div>
+<b>92</b><br />U<br />
+铀<br />
+238.0
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Neptunium2.jpg" />
+<p><b>镎（錼）</b>（<b>Neptunium</b>，）是一种化学元素，符号为<b>Np</b>，原子序为93。錼是首个超铀元素，属於锕系金属。錼具有放射性，其最稳定的同位素<sup>237</sup>Np是核反应炉和钚生产过程的副产品，能够用於制造中子探测仪。由於核嬗变反应，铀矿当中存在著微量錼元素。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%95%8E/85228">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镎">维基百科</a></li></ul>
+</div>
+<b>93</b><br />Np<br />
+镎<br />
+(237.1)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Plutonium3.jpg" />
+<p><b>钚（钸）</b>（<b>Plutonium</b>，）是原子序数94、元素符号为<b>Pu</b>的放射性超铀元素。它属於锕系金属，外表呈银白色，接触空气後容易腐蚀、氧化，在表面生成无光泽的二氧化钸。钸有六种同素异形体和四种氧化态，易和碳、卤素、氮、矽起化学反应。钸暴露在潮湿的空气中时会产生氧化物和氢化物，其体积最大可膨胀70%，屑状的钚能自燃。它也是一种放射性毒物，会於骨髓中集中。因此操作和处理钸有一定的危险。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%92%9A">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钚">维基百科</a></li></ul>
+</div>
+<b>94</b><br />Pu<br />
+钚<br />
+(244.1)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Americium_microscope.jpg" />
+<p><b>镅（鋂）</b>（<b>Americium</b>，）是一种放射性超铀元素，符号为<b>Am</b>，原子序为95。鋂属於锕系元素，在元素周期表中位於镧系元素铕之下。鋂是以发现所在的美洲大陆（America）命名的。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%95%85/85232">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镅">维基百科</a></li></ul>
+</div>
+<b>95</b><br />Am<br />
+镅<br />
+(243.1)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Curium.jpg" />
+<p><b>锔（锔）</b>（<b>Curium</b>）是一种放射性超铀元素，符号为<b>Cm</b>，原子序为96，属於锕系元素，以研究放射性的科学家玛莉·居礼 和其丈夫皮埃尔·居礼命名。伯克利加州大学的格伦·西奥多·西博格等人在1944年7月首次专门合成锔元素。发现起初被列为机密，到1945年11月才公布於世。大部分的锔是在核反应炉中通过对铀或钚进行中子撞击产生的。每吨用尽的核燃料中含有大约20克锔。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%94%94/85239">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锔">维基百科</a></li></ul>
+</div>
+<b>96</b><br />Cm<br />
+锔<br />
+(247.1)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Berkelium_metal.jpg" />
+<p><b>锫（鉳、锫）</b> 是一种放射性化学元素，符号为<b>Bk</b>，原子序为97，属於锕系元素和超铀元素。位於美国加州伯克利的劳伦斯伯克利国家实验室在1949年12月发现锫元素，因此锫以伯克莱（Berkeley）命名。锫是继镎、钚、锔和镅後第五个被发现的超铀元素。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%94%AB">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锫">维基百科</a></li></ul>
+</div>
+<b>97</b><br />Bk<br />
+锫<br />
+(247.1)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/Californium.jpg" />
+<p><b>锎（鉲）</b> 是一种放射性金属元素，符号为<b>Cf</b>，原子序为98。鉲属於锕系元素，是第六种人工合成的超铀元素。鉲是产量能以肉眼可见的元素中原子量第二高的（最高的是鑀）。伯克利加州大学於1950年以α粒子（氦-4离子）撞击锔，首次人工合成鉲元素，因此该元素是以美国加利福尼亚州及加州大学命名的。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%94%8E/85238">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锎">维基百科</a></li></ul>
+</div>
+<b>98</b><br />Cf<br />
+锎<br />
+(252.1)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/221px-Einsteinium.jpg" />
+<p><b>锿（鑀）</b> 是一种人工合成元素，符号为<b>Es</b>，原子序为99。鑀是第7个超铀元素，属於锕系元素。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%94%BF">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锿">维基百科</a></li></ul>
+</div>
+<b>99</b><br />Es<br />
+锿<br />
+(252.1)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_100_Fermium_-_no_label.svg.png" />
+<p><b>镄（镄）</b>（<b>Fermium</b>）是一种人工合成元素，符号为<b>Fm</b>，原子序为100，属於锕系元素。镄是能够用中子撞击较轻元素而产生的最重元素，即是说它是最後一种能够大量制成的元素。然而到目前为止，人们仍没有制成纯镄。镄一共拥有19种已知的同位素，其中<sup>257</sup>Fm存留时间最长，半衰期为100.5天。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%95%84">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/镄">维基百科</a></li></ul>
+</div>
+<span style="color:gray"><b>100</b></span><br />Fm<br />
+镄<br />
+(257.1)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_101_Mendelevium_-_no_label.svg.png" />
+<p><b>钔（钔）</b>是一个人工合成元素，符号为<b>Md</b>（曾为<b>Mv</b>），原子序为101。钔是锕系元素中具有放射性的超铀金属元素，通常的合成方式是以α衰变撞击鑀元素。钔（Mendelevium）以最先创建元素周期表的德米特里·伊万诺维奇·门捷列夫命名。门捷列夫的周期表成为了分类所有化学元素的最基本的方式。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%92%94">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/钔">维基百科</a></li></ul>
+</div>
+<span style="color:gray"><b>101</b></span><br />Md<br />
+钔<br />
+(258.1)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_102_Nobelium_-_no_label.svg.png" />
+<p><b>锘（锘）</b>是一种人工获得的放射性元素(1957年)，它的化学符号是<b>No</b>，它的原子序数是102，属于锕系元素之一。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%94%98">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/锘">维基百科</a></li></ul>
+</div>
+<span style="color:gray"><b>102</b></span><br />No<br />
+锘<br />
+(259.1)
+</td>
+<td class="actinide icon">
+<div class="info" style="display: none; ">
+<img src="yuansu/yuansu/320px-Electron_shell_103_Lawrencium_-_no_label.svg.png" />
+<p><b>铹（铹）</b>符号<b>Lr</b>，元素之一，原子序103，为一人工合成的放射性元素。在周期表中位於第7周期、3族，过渡金属之一。其原子量约为263amu，由硼轰击锎合成，名称来自美国物理学家欧内斯特·劳伦斯。</p>
+<ul class="links"><li><a href="https://baike.baidu.com/item/%E9%93%B9">百度百科</a></li><li><a href="https://zh.wikipedia.org/wiki/铹">维基百科</a></li></ul>
+</div>
+<span style="color:gray"><b>103</b></span><br />Lr<br />
+铹<br />
+(262.1)
+</td></tr></tbody></table><br></br>
+<div class="div-col columns column-count column-count-7" style="-moz-column-count: 7; -webkit-column-count: 7; column-count: 7;"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r51657664" />
+<div class="legend"><span class="legend-color alkali" style="border:1px solid black;display:inline-block; height:1.5em; margin:1px; text-align:center; font-size:70%; width:1.5em">&nbsp;</span>&nbsp;碱金属</div>
+<div class="legend"><span class="legend-color alkali_earth" style="border:1px solid black;display:inline-block; height:1.5em; margin:1px; text-align:center; font-size:70%; width:1.5em">&nbsp;</span>&nbsp;碱土金属</div>
+<div class="legend"><span class="legend-color lanthanide" style="border:1px solid black;display:inline-block; height:1.5em; margin:1px; text-align:center; font-size:70%; width:1.5em">&nbsp;</span>&nbsp;镧系元素</div>
+<div class="legend"><span class="legend-color actinide" style="border:1px solid black;display:inline-block; height:1.5em; margin:1px; text-align:center; font-size:70%; width:1.5em">&nbsp;</span>&nbsp;锕系元素</div>
+<div class="legend"><span class="legend-color transition" style="border:1px solid black;display:inline-block; height:1.5em; margin:1px; text-align:center; font-size:70%; width:1.5em">&nbsp;</span>&nbsp;过渡金属</div>
+<div class="legend"><span class="legend-color post_transition" style="border:1px solid black;display:inline-block; height:1.5em; margin:1px; text-align:center; font-size:70%; width:1.5em">&nbsp;</span>&nbsp;主族金属</div>
+<div class="legend"><span class="legend-color metalloid" style="border:1px solid black;display:inline-block; height:1.5em; margin:1px; text-align:center; font-size:70%; width:1.5em">&nbsp;</span>&nbsp;类金属</div>
+<div class="legend"><span class="legend-color reactive_nonmetal" style="border:1px solid black;display:inline-block; height:1.5em; margin:1px; text-align:center; font-size:70%; width:1.5em">&nbsp;</span>&nbsp;非金属</div>
+<div class="legend"><span class="legend-color halogen" style="border:1px solid black;display:inline-block; height:1.5em; margin:1px; text-align:center; font-size:70%; width:1.5em">&nbsp;</span>&nbsp;卤素</div>
+<div class="legend"><span class="legend-color noble_gas" style="border:1px solid black;display:inline-block; height:1.5em; margin:1px; text-align:center; font-size:70%; width:1.5em">&nbsp;</span>&nbsp;稀有气体</div>
+<div class="legend"><span class="legend-color unknown" style="border:1px solid black;display:inline-block; height:1.5em; margin:1px; text-align:center; font-size:70%; width:1.5em">&nbsp;</span>&nbsp;待确认</div>
+</div>
+</div>
+<br></br><p>在标准状况下，序号<span class="gas"><b>绿色</b></span>者为气体；序号<span class="liquid"><b>蓝色</b></span>者为液体；序号<span class="solid">黑色</span>者为固体；序号<span class="unknow_phase"><b>灰色</b></span>者为未知相态。</p>
+
